@@ -1,0 +1,1244 @@
+[
+  {
+    "type": "post",
+    "url": "/auth/forgot_password",
+    "title": "Forgot Password",
+    "version": "0.1.0",
+    "name": "ForgotPassword",
+    "group": "Auth",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email-ID.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "\ncurl -i http://103.121.156.221/projects/ticketatguru/api/v0.1.0/auth/forgot_password",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Password Reset Email Sent.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "status",
+            "description": "<p>{ &quot;code&quot;: 200, &quot;text&quot;: &quot;OK&quot; }.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "formValidation",
+            "description": "<p>true.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>The data of the User was not found.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "405",
+            "description": "<p>Method Not Allowed.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>500 Internal server error.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "404",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"404 Not Found\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "405",
+          "content": "HTTP/1.1 405 Method Not Allowed\n{\n  \"error\": \"405 Method Not Allowed\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "500",
+          "content": "HTTP/1.1 500 Internal server error\n{\n  \"error\": \"500 Internal server error\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./example.js",
+    "groupTitle": "Auth"
+  },
+  {
+    "type": "post",
+    "url": "/auth/logout",
+    "title": "Logout",
+    "version": "0.1.0",
+    "name": "Logout",
+    "group": "Auth",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "\ncurl -i http://103.121.156.221/projects/ticketatguru/api/v0.1.0/auth/logout",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Logout has been successfully.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<ol start=\"200\"> <li></li> </ol>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>The data of the User was not found.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "405",
+            "description": "<p>Method Not Allowed.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>500 Internal server error.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "404",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"404 Not Found\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "405",
+          "content": "HTTP/1.1 405 Method Not Allowed\n{\n  \"error\": \"405 Method Not Allowed\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "500",
+          "content": "HTTP/1.1 500 Internal server error\n{\n  \"error\": \"500 Internal server error\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./example.js",
+    "groupTitle": "Auth"
+  },
+  {
+    "type": "post",
+    "url": "/auth/login",
+    "title": "Login",
+    "version": "0.1.0",
+    "name": "PostLogin",
+    "group": "Auth",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email-ID.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>Password.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "\ncurl -i http://103.121.156.221/projects/ticketatguru/api/v0.1.0/auth/login",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>User data</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "loggedIn",
+            "description": "<p>User Id ({id:40})</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "errors",
+            "description": "<p>Array of Object.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Successfully logged in.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<ol start=\"200\"> <li></li> </ol>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "formValidation",
+            "description": "<p>true.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>The data of the User was not found.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "405",
+            "description": "<p>Method Not Allowed.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>500 Internal server error.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "404",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"404 Not Found\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "405",
+          "content": "HTTP/1.1 405 Method Not Allowed\n{\n  \"error\": \"405 Method Not Allowed\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "500",
+          "content": "HTTP/1.1 500 Internal server error\n{\n  \"error\": \"500 Internal server error\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./example.js",
+    "groupTitle": "Auth"
+  },
+  {
+    "type": "post",
+    "url": "/auth/register",
+    "title": "Register",
+    "version": "0.1.0",
+    "name": "PostRegister",
+    "group": "Auth",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "first_name",
+            "description": "<p>First Name.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "last_name",
+            "description": "<p>Last Name.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email Address.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "phone",
+            "description": "<p>Phone Number.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>Password.</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "\ncurl -i http://103.121.156.221/projects/ticketatguru/api/v0.1.0/auth/register",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>User data</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "loggedIn",
+            "description": "<p>User Id ({id:40})</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "errors",
+            "description": "<p>Array of Object.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>User has been successfully created.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<ol start=\"200\"> <li></li> </ol>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "formValidation",
+            "description": "<p>true.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>The data of the User was not found.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "405",
+            "description": "<p>Method Not Allowed.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>500 Internal server error.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "404",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"404 Not Found\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "405",
+          "content": "HTTP/1.1 405 Method Not Allowed\n{\n  \"error\": \"405 Method Not Allowed\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "500",
+          "content": "HTTP/1.1 500 Internal server error\n{\n  \"error\": \"500 Internal server error\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./example.js",
+    "groupTitle": "Auth"
+  },
+  {
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "optional": false,
+            "field": "varname1",
+            "description": "<p>No type.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "varname2",
+            "description": "<p>With type.</p>"
+          }
+        ]
+      }
+    },
+    "type": "",
+    "url": "",
+    "version": "0.0.0",
+    "filename": "./doc/main.js",
+    "group": "D__apidocs_ticketatguru_doc_main_js",
+    "groupTitle": "D__apidocs_ticketatguru_doc_main_js",
+    "name": ""
+  },
+  {
+    "type": "get",
+    "url": "/events/bestselling",
+    "title": "List of best selling events",
+    "version": "0.1.0",
+    "name": "GetBestSellingEvents",
+    "group": "Events",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl -i http://103.121.156.221/projects/ticketatguru/api/v0.1.0/events/bestselling",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<ol start=\"200\"> <li></li> </ol>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>OK.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>List of Events</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>Not Found   The data of the User was not found.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"404 Not Found\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./example.js",
+    "groupTitle": "Events"
+  },
+  {
+    "type": "get",
+    "url": "/events",
+    "title": "List of all events",
+    "version": "0.1.0",
+    "name": "GetEvents",
+    "group": "Events",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl -i http://103.121.156.221/projects/ticketatguru/api/v0.1.0/events",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<ol start=\"200\"> <li></li> </ol>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>OK.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>List of Events</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>Not Found   The data of the User was not found.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"404 Not Found\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./example.js",
+    "groupTitle": "Events"
+  },
+  {
+    "type": "get",
+    "url": "/events/type/2",
+    "title": "Get just announced events",
+    "version": "0.1.0",
+    "name": "GetJustAnnouncedEvents",
+    "group": "Events",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl -i http://103.121.156.221/projects/ticketatguru/api/v0.1.0/events/type/2",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<ol start=\"200\"> <li></li> </ol>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>OK.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>List of Events</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>Not Found   The data of the User was not found.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"404 Not Found\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./example.js",
+    "groupTitle": "Events"
+  },
+  {
+    "type": "get",
+    "url": "/events/type/1",
+    "title": "Get upcoming events",
+    "version": "0.1.0",
+    "name": "GetUpcomingEvents",
+    "group": "Events",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl -i http://103.121.156.221/projects/ticketatguru/api/v0.1.0/events/type/1",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<ol start=\"200\"> <li></li> </ol>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>OK.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>List of Events</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>Not Found   The data of the User was not found.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (example):",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"404 Not Found\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./example.js",
+    "groupTitle": "Events"
+  },
+  {
+    "type": "get",
+    "url": "/gallery",
+    "title": "List of gallery image",
+    "version": "0.1.0",
+    "name": "GetGalleryImages",
+    "group": "Images",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl -i http://103.121.156.221/projects/ticketatguru/api/v0.1.0/gallery",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<ol start=\"200\"> <li></li> </ol>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>OK.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>List of gallery image</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>Gallery image was not found.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "405",
+            "description": "<p>Method Not Allowed.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>500 Internal server error.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "404",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"404 Not Found\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "405",
+          "content": "HTTP/1.1 405 Method Not Allowed\n{\n  \"error\": \"405 Method Not Allowed\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "500",
+          "content": "HTTP/1.1 500 Internal server error\n{\n  \"error\": \"500 Internal server error\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./example.js",
+    "groupTitle": "Images"
+  },
+  {
+    "type": "get",
+    "url": "/sponsors",
+    "title": "List of all sponsors image",
+    "version": "0.1.0",
+    "name": "GetSponsorsImages",
+    "group": "Images",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl -i http://103.121.156.221/projects/ticketatguru/api/v0.1.0/sponsors",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<ol start=\"200\"> <li></li> </ol>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>OK.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>List of sponsors image</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>Sponsors image was not found.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "405",
+            "description": "<p>Method Not Allowed.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "500",
+            "description": "<p>500 Internal server error.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "404",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"404 Not Found\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "405",
+          "content": "HTTP/1.1 405 Method Not Allowed\n{\n  \"error\": \"405 Method Not Allowed\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "500",
+          "content": "HTTP/1.1 500 Internal server error\n{\n  \"error\": \"500 Internal server error\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./example.js",
+    "groupTitle": "Images"
+  },
+  {
+    "type": "get",
+    "url": "/venue/1",
+    "title": "Get Venue",
+    "version": "0.1.0",
+    "name": "getVenueByMapId",
+    "group": "Seat_Map",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl -i http://103.121.156.221/projects/ticketatguru/api/v0.1.0/map/venue/1",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>{ &quot;id&quot;: &quot;68&quot;, &quot;map_id&quot;: &quot;1&quot;, &quot;map_path&quot;: &quot;app/web/upload/venue/1_3469cad0aca0be4280c4b6f358666469.jpg&quot;, &quot;mime_type&quot;: null, &quot;map_name&quot;: null, &quot;map_content&quot;: &quot;xyz&quot;, &quot;seats_count&quot;: null, &quot;status&quot;: &quot;T&quot; }</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "status",
+            "description": "<p>{ &quot;code&quot;: 200, &quot;text&quot;: &quot;OK&quot; }</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>Venue was not found.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "405",
+            "description": "<p>Method Not Allowed.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "404",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"message\": \"404 Not Found\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "405",
+          "content": "HTTP/1.1 405 Method Not Allowed\n{\n  \"message\": \"405 Method Not Allowed\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./example.js",
+    "groupTitle": "Seat_Map"
+  },
+  {
+    "type": "post",
+    "url": "/map/venue-created",
+    "title": "Venue Created",
+    "version": "0.1.0",
+    "name": "venueCreated",
+    "group": "Seat_Map",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mapId",
+            "description": "<p>Map ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "mapContent",
+            "description": "<p>Map Content</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "mapImage",
+            "description": "<p>Map Image</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "\ncurl -i http://103.121.156.221/projects/ticketatguru/api/v0.1.0/map/venue-created",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>Data object hold three property like. { &quot;mapId&quot;: &quot;1, &quot;mapContent&quot;: &quot;&quot;, &quot;mapImage&quot;: &quot;&quot; }</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "status",
+            "description": "<p>Status is an object that has two property like. { &quot;code&quot;: 200, &quot;text&quot;: &quot;OK&quot; }</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Venue is updated&quot;</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>The data of the User was not found.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "405",
+            "description": "<p>Method Not Allowed.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "200",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "404",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"message\": \"404 Not Found\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "405",
+          "content": "HTTP/1.1 405 Method Not Allowed\n{\n  \"message\": \"405 Method Not Allowed\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "200",
+          "content": "HTTP/1.1 200 \n{\n  \"message\": 'Please provide three param mapId, mapContent, mapImage'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./example.js",
+    "groupTitle": "Seat_Map"
+  },
+  {
+    "type": "get",
+    "url": "/user/35",
+    "title": "User",
+    "version": "0.1.0",
+    "name": "getUser",
+    "group": "User",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "curl -i http://103.121.156.221/projects/ticketatguru/api/v0.1.0/user/35",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "User",
+            "description": "<p>data</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "status",
+            "description": "<p>{ &quot;code&quot;: 200, &quot;text&quot;: &quot;OK&quot; }</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>Venue was not found.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "405",
+            "description": "<p>Method Not Allowed.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "404",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"message\": \"404 Not Found\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "405",
+          "content": "HTTP/1.1 405 Method Not Allowed\n{\n  \"message\": \"405 Method Not Allowed\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./example.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/user",
+    "title": "Update user profile",
+    "version": "0.1.0",
+    "name": "updateUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Provide user id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "first_name",
+            "description": "<p>Provide user first name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "last_name",
+            "description": "<p>Provide user last name</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "phone",
+            "description": "<p>Provide user phone n umber</p>"
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "\ncurl -i http://103.121.156.221/projects/ticketatguru/api/v0.1.0/user/",
+        "type": "json"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "data",
+            "description": "<p>User data</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "status",
+            "description": "<p>Status is an object that has two property like. { &quot;code&quot;: 200, &quot;text&quot;: &quot;OK&quot; }</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Your profile has been successfully updated&quot;</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "405",
+            "description": "<p>Method Not Allowed.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "405",
+          "content": "HTTP/1.1 405 Method Not Allowed\n{\n  \"message\": \"405 Method Not Allowed\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./example.js",
+    "groupTitle": "User"
+  }
+]
