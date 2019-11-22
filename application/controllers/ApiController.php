@@ -1,5 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Headers: Origin, Methods, Content-Type");
 use Illuminate\Http\Response;
 class ApiController extends App_Controller {
 

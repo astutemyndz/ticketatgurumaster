@@ -587,7 +587,7 @@ vendorAutoLoader::register();
 
 
 require_once ROOT_PATH .'bootstrap/autoload.php';
-if (!defined("PJ_SALT")) define("PJ_SALT", "GYZG3G97");//*N6EZGZ3Q
-if (!defined("PJ_INSTALL_PATH")) define("PJ_INSTALL_PATH", "E:/xampp/htdocs/projects/ticketatguru/");
-if (!defined("PJ_INSTALL_FOLDER")) define("PJ_INSTALL_FOLDER", "/projects/ticketatguru/");
+if (!defined("PJ_SALT")) define("PJ_SALT", "SP3VW67V");//*N6EZGZ3Q
+if (!defined("PJ_INSTALL_URL")) define("PJ_INSTALL_URL", "http://localhost/ticketatgurumaster/");
+    if (!defined("PJ_INSTALL_FOLDER")) define("PJ_INSTALL_FOLDER", "/ticketatgurumaster/");
 

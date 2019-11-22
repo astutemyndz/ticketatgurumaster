@@ -1,9 +1,6 @@
 <?php
-//use ;
-
 // ini_set("display_errors", "On");
 // error_reporting(E_ALL|E_STRICT);
-
 if (!headers_sent())
 {
 	if (isset($_GET['session_id']))
@@ -19,11 +16,9 @@ if (!headers_sent())
 			session_id($session_id);
 		}
 	}
-	session_name('TicketAtGuru');
+	session_name('ticketatguru');
 	@session_start();
 }
-//echo "<pre>"; print_r($_SESSION);
-
 $_SERVER['PHP_SELF']=htmlspecialchars($_SERVER['PHP_SELF'], ENT_QUOTES);
 if (isset($_GET["reporting"]) && $_GET["reporting"] == '0') 
 {
@@ -58,60 +53,7 @@ if (!isset($_GET['controller']) || empty($_GET['controller']))
 
 if (isset($_GET['controller']))
 {
-	$controller = (isset($_GET['controller'])) ? $_GET['controller'] : '';
-	
-	$pjMM = pjModuleModel::factory();
-	$pjMM = $pjMM->findAll()->getData();
-
-	$data['controller'] = $_GET['controller'];
-
-	$explodeController = explode('pj', $controller);
-	$c = (count($explodeController) > 0) ? count($explodeController) : 0;
-
-	switch ($c) {
-		case '2':
-			$data['name'] = $explodeController[1];
-			break;
-		default:
-		$data['name'] = $explodeController[1]." ". $data['name'] = $explodeController[2];
-			break;
-	}
-	
-	
-	$data['path'] = $_SERVER['QUERY_STRING'];
-
-	$isExists = false;
-	for($i = 0; $i <= count($pjMM); $i++) {
-		if($pjMM[$i]['controller'] == $controller) {
-			$isExists = true;
-			break;
-		} else {
-			$isExists = false;
-			//$data['table_name'] = '';
-			if($pjMM[$i]['controller'] == 'pjAdmin') {
-				$isExists = true;
-			}
-			
-			
-		}
-	}
-
-	if(!$isExists) {
-		$id = pjModuleModel::factory($data)->insert()->getInsertId();
-	}
 	$pjObserver = pjObserver::factory();
 	$pjObserver->init();
-	
-
-	
-	// echo "<pre>";
-	// print_r($pjMM);
-	//exit;			
-
-	
-
-	
-
-	
 }
 ?>

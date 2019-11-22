@@ -27,7 +27,7 @@ if (!$stop)
 
 	if (!defined("PJ_HOST") || preg_match('/\[hostname\]/', PJ_HOST))
 	{
-		header("Location: index.php?controller=pjInstaller&action=pjActionStep1&install=1");
+		header("Location: admin.php?controller=pjInstaller&action=pjActionStep1&install=1");
 		exit;
 	}
 }
@@ -60,11 +60,8 @@ if (!defined("PJ_DISABLE_MYSQL_CHECK")) define("PJ_DISABLE_MYSQL_CHECK", false);
 if (!defined("PJ_RSA_MODULO")) define("PJ_RSA_MODULO", '1481520313354086969195005236818182195268088406845365735502215319550493699869327120616729967038217547');
 if (!defined("PJ_RSA_PRIVATE")) define("PJ_RSA_PRIVATE", '7');
 
-if (!defined("PJ_INVOICE_PLUGIN")) define("PJ_INVOICE_PLUGIN", 'admin.php?controller=pjAdminBookings&action=pjActionUpdate&uuid={ORDER_ID}');
+if (!defined("PJ_INVOICE_PLUGIN")) define("PJ_INVOICE_PLUGIN", 'index.php?controller=pjAdminBookings&action=pjActionUpdate&uuid={ORDER_ID}');
 
 $CONFIG = array();
 $CONFIG['plugins'] = array('pjLocale', 'pjBackup', 'pjLog', 'pjInstaller', 'pjOneAdmin', 'pjPaypal', 'pjAuthorize', 'pjCountry', 'pjInvoice', 'pjSms');
-
-
-if (!defined("PJ_APPLICATION_PATH")) define("PJ_APPLICATION_PATH", ROOT_PATH . "application/");
 ?>

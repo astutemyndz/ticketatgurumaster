@@ -202,8 +202,6 @@ class pjAdmin extends pjAppController
 		
 		if (isset($_POST['login_user']))
 		{
-			//session_destroy();
-			//exit;
 			if (!isset($_POST['login_email']) || !isset($_POST['login_password']) ||
 				!pjValidation::pjActionNotEmpty($_POST['login_email']) ||
 				!pjValidation::pjActionNotEmpty($_POST['login_password']) ||
@@ -211,16 +209,13 @@ class pjAdmin extends pjAppController
 			{				
 				pjUtil::redirect($_SERVER['PHP_SELF'] . "?controller=pjAdmin&action=pjActionLogin&err=4");
 			}
-			//echo $_POST['login_email']."=>".$_POST['login_password'];die;
 			$pjUserModel = pjUserModel::factory();
-
 			$user = $pjUserModel
 				->where('t1.email', $_POST['login_email'])
 				->where(sprintf("t1.password = AES_ENCRYPT('%s', '%s')", pjObject::escapeString($_POST['login_password']), PJ_SALT))
 				->limit(1)
 				->findAll()
 				->getData();
-			//echo "<pre>"; print_r($user);die;	
 			if (count($user) != 1)
 			{
 				pjUtil::redirect($_SERVER['PHP_SELF'] . "?controller=pjAdmin&action=pjActionLogin&err=1");
@@ -229,38 +224,43 @@ class pjAdmin extends pjAppController
 				unset($user['password']);
 				
 				$priv = pjRoleModel::factory()->find($user['role_id'])->getData();//("id =", $user['id_cms_privileges'])->first();
-				$isSuperAdmin = FALSE;
-				if(count($user) > 0) {
+				//$isSuperAdmin = FALSE;
+				
+				$pjRoleAclModel = pjRoleAclModel::factory();
+				$roles = $pjRoleAclModel->select("t2.name, t2.path, t2.controller, t1.is_visible, t1.is_create, t1.is_read, t1.is_edit, t1.is_delete")
+											->join('pjModule', 't2.id = t1.id_tk_cbs_modules', 'left outer')
+											->where('t1.id_tk_cbs_roles =', $user['role_id'])
+											->findAll()
+											->getData();
 					if(!$priv['is_superadmin']) {
-						$isSuperAdmin = FALSE;
-						$pjRoleAclModel = pjRoleAclModel::factory();
-						$roles = $pjRoleAclModel->select("t2.name, t2.path, t2.controller, t1.is_visible, t1.is_create, t1.is_read, t1.is_edit, t1.is_delete")
-													->join('pjModule', 't2.id = t1.id_tk_cbs_modules', 'left outer')
-													->where('t1.id_tk_cbs_roles =', $user['role_id'])
-													->findAll()
-													->getData();
-						//App::dd($roles);
-						App::setSession('roles', $roles);
-						App::setSession('role_id', $user['role_id']);
-						App::setSession('role_name', $priv['role']);
-						App::setSession('is_superadmin', $isSuperAdmin);
+					
+						//$isSuperAdmin = FALSE;
+						$_SESSION['roles'] 				  	 = $roles;
+						$_SESSION['role_id'] 				= $user['role_id'];
+						$_SESSION['role_name'] 			= $priv['role'];
+						$_SESSION['is_superadmin'] 	 = FALSE;
+
+						//App::setSession('roles', $roles);
+						// App::setSession('role_id', $user['role_id']);
+						// App::setSession('role_name', $priv['role']);
+						// App::setSession('is_superadmin', $isSuperAdmin);
 					} else {
-						//App::dd($roles);
-						App::setSession('roles', $roles);
-						App::setSession('role_id', $user['role_id']);
-						App::setSession('role_name', $priv['role']);
-						//pjUtil::redirect($_SERVER['PHP_SELF'] . "?controller=pjAdmin&action=pjActionIndex&err=5");
-						$isSuperAdmin = TRUE;
-						App::setSession('is_superadmin', $isSuperAdmin);
+						$_SESSION['roles'] 				  	 = $roles;
+						$_SESSION['role_id'] 				= $user['role_id'];
+						$_SESSION['role_name'] 			= $priv['role'];
+						$_SESSION['is_superadmin'] 	 = TRUE;
+						//$isSuperAdmin = TRUE;
 						
+						// App::setSession('roles', $roles);
+						// App::setSession('role_id', $user['role_id']);
+						// App::setSession('role_name', $priv['role']);
+						// App::setSession('is_superadmin', $isSuperAdmin);
 					}
-						
-				}						
-						
+					// echo "<pre>";
+					// print_r($_SESSION);
+					// exit;		
 				
-				
-				
-				
+									
 				if ($user['status'] != 'T')
 				{
 					pjUtil::redirect($_SERVER['PHP_SELF'] . "?controller=pjAdmin&action=pjActionLogin&err=3");
@@ -272,19 +272,19 @@ class pjAdmin extends pjAppController
 				{
 					$user['last_login'] = date("Y-m-d H:i:s");
 				}
-    			App::setSession($this->defaultUser, $user);
-    			// echo "<pre>";
-				// print_r($_SESSION);
-				// exit;	
+				//App::setSession($this->defaultUser, $user);
+				$_SESSION['user'] = $user;
+    		
     			$data = array();
     			$data['last_login'] = $last_login;
     			$pjUserModel->reset()->setAttributes(array('id' => $user['id']))->modify($data);
 				
-				if(App::isSuperAdmin()) {
-					
+				if(isset($_SESSION['is_superadmin'])) {
+					pjUtil::redirect($_SERVER['PHP_SELF'] . "?controller=pjAdmin&action=pjActionIndex");
+				} else {
 					pjUtil::redirect($_SERVER['PHP_SELF'] . "?controller=pjAdmin&action=pjActionIndex");
 				}
-				pjUtil::redirect($_SERVER['PHP_SELF'] . "?controller=pjAdmin&action=pjActionIndex");
+				
     			// if ($this->isAdmin() || $this->isEditor())
     			// {
 	    		// 	pjUtil::redirect($_SERVER['PHP_SELF'] . "?controller=pjAdmin&action=pjActionIndex");

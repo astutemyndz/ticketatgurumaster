@@ -288,11 +288,11 @@ switch (ENVIRONMENT)
 	 */
 	if (!defined("PJ_HOST")) define("PJ_HOST", "localhost");
 	if (!defined("PJ_USER")) define("PJ_USER", "root");
-	if (!defined("PJ_PASS")) define("PJ_PASS", "Bpc@1404");
-	if (!defined("PJ_DB")) define("PJ_DB", "ticketbooking");
+	if (!defined("PJ_PASS")) define("PJ_PASS", "");
+	if (!defined("PJ_DB")) define("PJ_DB", "ticketatgurumaster");
 	if (!defined("PJ_PREFIX")) define("PJ_PREFIX", "tk_");
 	if (!defined("PJ_SCRIPT_PREFIX")) define("PJ_SCRIPT_PREFIX", "cbs_");
-	if (!defined("APPLICATION_BASE_PATH")) define("APPLICATION_BASE_PATH", $_SERVER['DOCUMENT_ROOT'].'/projects/ticketatgurumaster/');
+	if (!defined("APPLICATION_BASE_PATH")) define("APPLICATION_BASE_PATH", $_SERVER['DOCUMENT_ROOT'].'/ticketatgurumaster/');
 	
 
 	if(!define("ROOT_PATH", dirname(__FILE__) . '/')) define("ROOT_PATH", dirname(__FILE__) . '/');
@@ -325,9 +325,9 @@ switch (ENVIRONMENT)
 	if (!defined("PJ_RSA_MODULO")) define("PJ_RSA_MODULO", '1481520313354086969195005236818182195268088406845365735502215319550493699869327120616729967038217547');
 	if (!defined("PJ_RSA_PRIVATE")) define("PJ_RSA_PRIVATE", '7');
 
-	if (!defined("PJ_INVOICE_PLUGIN")) define("PJ_INVOICE_PLUGIN", 'index.php?controller=pjAdminBookings&action=pjActionUpdate&uuid={ORDER_ID}');
-	if (!defined("PJ_INSTALL_URL")) define("PJ_INSTALL_URL", "http://103.121.156.221/projects/ticketatgurumaster/");
-	if (!defined("PJ_INSTALL_PATH")) define("PJ_INSTALL_PATH", "E:/xampp/htdocs/projects/ticketatgurumaster/");
+	if (!defined("PJ_INVOICE_PLUGIN")) define("PJ_INVOICE_PLUGIN", 'admin.php?controller=pjAdminBookings&action=pjActionUpdate&uuid={ORDER_ID}');
+	///if (!defined("PJ_INSTALL_URL")) define("PJ_INSTALL_URL", "http://localhost/ticketatgurumaster/");
+	//if (!defined("PJ_INSTALL_PATH")) define("PJ_INSTALL_PATH", "E:/xampp/htdocs/projects/ticketatgurumaster/");
 	
 	$CONFIG = array();
 	$CONFIG['plugins'] = array('pjLocale', 'pjBackup', 'pjLog', 'pjInstaller', 'pjOneAdmin', 'pjPaypal', 'pjAuthorize', 'pjCountry', 'pjInvoice', 'pjSms');

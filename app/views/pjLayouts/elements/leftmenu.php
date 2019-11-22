@@ -15,7 +15,7 @@
 	<ul class="menu">
 		<?php 
 		// is_superadmin = false
-		if(!App::isSuperAdmin()) { ?>
+		if(!$_SESSION['is_superadmin']) { ?>
 		<li <?php echo (in_array( 'controller=pjAdmin&action=pjActionIndex', App::getUserRoles())) ? "style=display:block" : "style=display:none;"?>><a href="<?php echo $_SERVER['PHP_SELF']; ?>?controller=pjAdmin&action=pjActionIndex" class="<?php echo $_GET['controller'] == 'pjAdmin' && $_GET['action'] == 'pjActionIndex' ? 'menu-focus' : NULL; ?>"><span class="menu-dashboard">&nbsp;</span><?php __('menuDashboard'); ?></a>
 		</li>
 		<li <?php echo (in_array( 'controller=pjAdminSchedule&action=pjActionIndex', App::getUserRoles())) ? "style=display:block" : "style=display:none;"?>><a href="<?php echo $_SERVER['PHP_SELF']; ?>?controller=pjAdminSchedule&action=pjActionIndex" class="<?php echo $_GET['controller'] == 'pjAdminSchedule' ? 'menu-focus' : NULL; ?>"><span class="menu-schedule">&nbsp;</span><?php __('menuSchedule'); ?></a>

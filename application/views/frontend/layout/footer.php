@@ -239,7 +239,7 @@
 
     <!-- Optional JavaScript -->
     <script>
-        const API_URL = 'http://103.121.156.221/projects/ticketatgurumaster/api/v0.1.0';
+        const API_URL = 'http://127.0.0.1/ticketatgurumaster/api/v0.1.0';
         const BASE_URL = '<?php echo base_url();?>';
        
     </script>
