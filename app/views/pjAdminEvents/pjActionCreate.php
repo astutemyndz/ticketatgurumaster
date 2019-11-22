@@ -131,6 +131,7 @@ if (isset($tpl['status']))
 			</p>				
 		</div>
 		<?php
+		/*
 		pjUtil::printNotice(__('infoEventPriceTitle', true), __('infoEventPriceDesc', true)); 
 		?>
 		<div id="multiple_prices">
@@ -162,14 +163,15 @@ if (isset($tpl['status']))
 				<input type="button" value="<?php __('btnAdd'); ?>" class="pj-button pj-add-size" />
 			</p>
 		</div>
-		
+		*/?>
 		<p>
 			<label class="title">&nbsp;</label>
 			<input type="submit" value="<?php __('btnSave'); ?>" class="pj-button" />
 			<input type="button" value="<?php __('btnCancel'); ?>" class="pj-button" onclick="window.location.href='<?php echo PJ_INSTALL_URL; ?>admin.php?controller=pjAdminEvents&action=pjActionIndex';" />
 		</p>
 	</form>
-	
+	<?php 
+	/*
 	<div id="fd_size_clone" style="display: none;">
 		<div class="fd-size-row" data-index="{INDEX}">
 			<?php
@@ -193,7 +195,7 @@ if (isset($tpl['status']))
 			</div>
 		</div>
 	</div>
-	
+	*/?>
 	<script type="text/javascript">
 	var locale_array = new Array(); 
 	var myLabel = myLabel || {};

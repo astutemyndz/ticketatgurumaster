@@ -79,6 +79,9 @@
                     	<nav class="navbar navbar-expand-lg navbar-light help-link-area">
                             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                                 <ul class="navbar-nav">
+                                	<li class="nav-item">
+                                      <a class="nav-link cart-area" href="#"><i class="fab fa-opencart"></i> <span>2</span></a>
+                                    </li>
                                     <li class="nav-item dropdown">
                                       <a class="nav-link dropdown-toggle" href="#" id="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="far fa-user-circle"></i>

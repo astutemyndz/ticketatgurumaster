@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <div class="form-row">
                         	<div class="col-sm-12">
-                            	<textarea placeholder="Message" rows="3"></textarea>
+                            	<textarea placeholder="Message" rows="5"></textarea>
                             </div>
                         </div>
 						<button class="cont-form-sub btn my-btn" type="submit" value="Submit">Submit</button>
@@ -62,11 +62,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <h3><i class="fa fa-map-marker-alt" aria-hidden="true"></i> Address</h3>
                         <div class="details-contact">
                             <ul>
-                                <li><span>London:</span><br />
-                                    3 Park Road, Crouch End London N8 8TE
+                                <li><span>London:</span> 3 Park Road, Crouch End London N8 8TE
                                 </li>
-                                <li><span>Egypt:</span><br />
-                                    34 El-Hassan Street, Ad Doqi Giza Governorate
+                                <li><span>Egypt:</span> 34 El-Hassan Street, Ad Doqi Giza Governorate
                                 </li>
                             </ul>
                         </div>
@@ -75,9 +73,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
     </div>
+    <div class="container-fluid  mt-4">
+    	<div class="row ">
+        	<div class="col-sm-6">
+            	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2479.335006317974!2d-0.12648078422733436!3d51.5804232796471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761bc728bdaec5%3A0x210b7d3db454205!2s3%20Park%20Mews%2C%20Park%20Rd%2C%20Crouch%20End%2C%20London%20N8%208GB%2C%20UK!5e0!3m2!1sen!2sin!4v1573804558639!5m2!1sen!2sin" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            </div>
+            <div class="col-sm-6">
+            	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.7942611347266!2d31.193389015115006!3d30.04275978188284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145846cac104cfe3%3A0x81d471bd744436e4!2s34%20El-Hassan%2C%20Ad%20Doqi%2C%20Dokki%2C%20Giza%20Governorate%2C%20Egypt!5e0!3m2!1sen!2sin!4v1573804586153!5m2!1sen!2sin" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            </div>
+        </div>
+    </div>
 </section>
 
-<section class="contact-details-back">
+<!--<section class="contact-details-back">
 	<div class="container">
     	<div class="row">
         	<div class="col-sm-4">
@@ -112,7 +120,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
     </div>
-</section>
+</section>-->
 
 <!--<section class="contact-sec">
 	<div class="container">
